@@ -1,0 +1,71 @@
+<!-- http://18.222.204.78:4200/ -->
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>User Login and Sessions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <div id="streamWindow" ng-controller="myController">
+        <h2 id="welcomeText">Twitch Streams</h2>
+        <p>Edit your stream list in the user settings</p>
+        <a id="logoutLink" href="/logout">logout</a>
+        <a id="editLink" href="/user">Edit User</a>
+        
+        <div>
+            <ul class="nav nav-pills nav-justified">
+                <li ng-repeat="stream in user.streams.split(',') track by $index">
+                    <a data-toggle="pill" href="#stream{{$index}}">
+                        {{stream}}
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="stream0" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[0] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream1" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[1] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream2" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[2] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream3" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[3] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream4" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[4] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream5" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[5] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream6" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[6] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream7" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[7] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream8" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[8] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+                <div id="stream9" class="tab-pane fade">
+                    <iframe src="https://player.twitch.tv/?channel=<%= streams[9] %>" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+    <script src="/javascripts/my_app.js"></script>
+</body>
+
+</html>
