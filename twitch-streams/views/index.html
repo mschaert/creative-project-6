@@ -1,0 +1,44 @@
+<!-- http://18.222.204.78:3001/ -->
+<!doctype html>
+<html ng-app="myApp">
+
+<head>
+    <title>User Login and Sessions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <div id="streamWindow" ng-controller="myController">
+        <h2 id="welcomeText">Twitch Streams</h2>
+        <p>Edit your stream list in the user settings</p>
+        <a id="editLink" href="/user">User Settings</a>
+        <a style="padding-left:10px;" id="logoutLink" href="/logout">Logout</a>
+
+        <div>
+            <ul class="nav nav-pills nav-justified">
+                <li ng-repeat="stream in user.streams track by $index">
+                    <a data-toggle="pill" href="#stream{{$index}}">
+                        {{stream}}
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="stream{{$index}}" class="tab-pane fade" ng-repeat="stream_url in stream_urls track by $index">
+                    <iframe ng-src="{{stream_url}}" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
+    <script src="/javascripts/my_app.js"></script>
+</body>
+
+</html>
